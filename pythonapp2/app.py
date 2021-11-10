@@ -7,4 +7,4 @@ def binding(request: BindingRequest):
     print(request.text(), flush=True)
 
 if __name__ == "__main__":
-    app.run(port=3000, debug=True) # run on the server
+    app.run(3000) # run on the server
