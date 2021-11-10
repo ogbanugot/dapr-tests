@@ -2,6 +2,6 @@ FROM python:3.7-alpine
 WORKDIR /app
 COPY . /app
 RUN rm -rf ./components
-RUN pip install requests
+RUN pip install requests dapr
 ENTRYPOINT ["python"]
 CMD ["app.py"]

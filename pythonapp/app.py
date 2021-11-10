@@ -1,20 +1,24 @@
 import time
 import requests
 import os
+import json
+import time
 
-dapr_port = os.getenv("DAPR_HTTP_PORT", 3500)
+from dapr.clients import DaprClient
 
-dapr_url = "http://localhost:{}/v1.0/bindings/testpythonapps".format(dapr_port)
-n = 0
-while True:
-    n += 1
-    payload = { "data": {"orderId": n}, "operation": "create" }
-    print(payload, flush=True)
-    try:
-        response = requests.post(dapr_url, json=payload)
-        print(response, flush=True)
+with DaprClient() as d:
+    n = 0
+    while True:
+        n += 1
+        req_data = {
+            'id': n,
+            'message': 'hello world'
+        }
 
-    except Exception as e:
-        print(e, flush=True)
+        print(req_data, flush=True)
 
-    time.sleep(1)
+        # Create a typed message with content type and body
+        resp = d.invoke_binding('testpythonapps', 'create', json.dumps(req_data))
+
+        time.sleep(1)
+        
