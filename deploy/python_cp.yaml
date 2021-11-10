@@ -2,23 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bindings-pythonapp1
-  namespace: default
   labels:
-    app: bindings-pythonapp1
+    app: bindingspythonapp1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bindings-pythonapp1
+      app: bindingspythonapp1
   template:
     metadata:
       labels:
-        app: bindings-pythonapp1
+        app: bindingspythonapp1
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: bindings-pythonapp1
-        dapr.io/app-protocol: "grpc"
-        dapr.io/config: "serverconfig"
+        dapr.io/app-id: "bindings-pythonapp1"
     spec:
       containers:
       - name: pythonapp1
