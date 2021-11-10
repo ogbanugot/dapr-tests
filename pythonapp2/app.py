@@ -1,19 +1,15 @@
 #Consumer app
 from mask import Mask
 from mask.parse import pre, Rule
-
+from hello_pb2 import HelloResponse
 app = Mask(__name__)
 
 
-rule = {
-    "name": Rule(type=str, gte=2, dest="Name")
-}
-
-@app.route("/testpythonapps")
+@app.route(method="testpythonapps", service="Hello")
 def incoming(request, context):
     print("Hello from Kafka!", flush=True)
-    params = pre.parse(rule=rule, request=request, context=context)
-    data = params['Name']
+    #params = pre.parse(rule=rule, request=request, context=context)
+    data = HelloResponse(message=request)
     print(data, flush=True)
     return(data)
 
