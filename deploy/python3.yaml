@@ -16,7 +16,7 @@ spec:
         app: bindings-pythonapp3
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "server"
+        dapr.io/app-id: "pythonapp3"
         dapr.io/app-protocol: "grpc"
         dapr.io/app-port: "50059"
         dapr.io/config: "serverconfig"
