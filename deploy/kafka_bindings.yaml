@@ -8,14 +8,14 @@ spec:
   metadata:
   # Kafka broker connection setting
   - name: brokers
-    value: dapr-kafka.kafka:9092
+    value: 157.230.219.54:9092
   # consumer configuration: topic and consumer group
   - name: topics
-    value: test
+    value: testConsumer
   - name: consumerGroup
-    value: group1
+    value: testgroup1
   # publisher configuration: topic
   - name: publishTopic
-    value: test
+    value: testProducer
   - name: authRequired
     value: "false"
