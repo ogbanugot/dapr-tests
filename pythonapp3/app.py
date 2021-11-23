@@ -7,11 +7,12 @@ app = App()
 @app.binding('testpythonapps')
 def binding(request: BindingRequest):
     print(request.text(), flush=True)
+    payload = {"videoID":"615eada740df58bbc58cf4859"}
     with DaprClient() as d:
         response = d.invoke_method(
             'teambyocr',
             'teambyocr',
-            data=json.dumps(request.text()),
+            data=json.dumps(payload),
         )
     print(response)
 
