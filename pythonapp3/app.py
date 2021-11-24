@@ -14,7 +14,7 @@ def binding(request: BindingRequest):
             'teambyocr',
             data=json.dumps(payload),
         )
-    print(response.text())
+    print(json.loads(response.text()))
 
 if __name__ == "__main__":
     app.run(50059) # run on the server
